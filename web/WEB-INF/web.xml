@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>kaptcha</servlet-name>
+        <servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+        <init-param>
+            <!-- 验证码图片的边框 yes和no -->
+            <param-name>kaptcha.border</param-name>
+            <param-value>yes</param-value>
+        </init-param>
+        <init-param>
+            <!-- 验证码图片的边框的颜色 -->
+            <param-name>kaptcha.border.color</param-name>
+            <param-value>105,179,90</param-value>
+        </init-param>
+        <init-param>
+            <!-- 验证码的颜色 -->
+            <param-name>kaptcha.textproducer.font.color</param-name>
+            <param-value>red</param-value>
+        </init-param>
+        <init-param>
+            <!-- 整个验证码在图片中的宽度 -->
+            <param-name>kaptcha.image.width</param-name>
+            <param-value>250</param-value>
+        </init-param>
+        <init-param>
+            <!-- 整个验证码在图片中的高度 -->
+            <param-name>kaptcha.image.height</param-name>
+            <param-value>90</param-value>
+        </init-param>
+        <init-param>
+            <!-- 验证码在图片中的大小 -->
+            <param-name>kaptcha.textproducer.font.size</param-name>
+            <param-value>70</param-value>
+        </init-param>
+        <init-param>
+            <!-- 获取验证码的名字SESSION -->
+            <param-name>kaptcha.session.key</param-name>
+            <param-value>googleVerifyCode</param-value>
+        </init-param>
+        <init-param>
+            <!-- 显示几个验证码 -->
+            <param-name>kaptcha.textproducer.char.length</param-name>
+            <param-value>4</param-value>
+        </init-param>
+        <init-param>
+            <!-- 验证码的字体和式样 -->
+            <param-name>kaptcha.textproducer.font.names</param-name>
+            <param-value>宋体,楷体,微软雅黑</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>kaptcha</servlet-name>
+        <url-pattern>/kaptcha/kaptcha.jpg</url-pattern>
+    </servlet-mapping>
+
+</web-app>
